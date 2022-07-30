@@ -32,27 +32,17 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', async (req, res) => {
     const data = await Restaurent.find({});
-    res.render('index',{data});
-    // res.send(data);
+    res.render("index",{ data });
 });
+
 app.get('/login', (req, res) => {
     res.render('login');
-    // res.send(data);
 });
+
 app.get('/:id',async (req,res)=>{
     const data = await Restaurent.findById(req.params.id);
     res.render('show',{data});
-    // res.send(data);
 });
-
-
-// app.get('/:_id',function(req,res){
-//     Movie.getMovieById(req.params._id, function(err,movie){
-//         if(err){
-//             throw err;
-//         }
-//         res.json(movie);
-//     });
 
 
 

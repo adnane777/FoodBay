@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Carousel Template · Bootstrap v5.2</title>
+    <link rel="stylesheet" href="/carousel.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+<!-- <link href="../public/assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="../public/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"> <span style="font-weight:700;">  #FoodBay </span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <!-- <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul> -->
+        <form class="d-flex" role="search">
+          <a href="index"><button class="btn btn-outline-success justify-content-end"  type="submit">Go Back</button></a>
+          
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div style="width:100%; height:100%;background-image: url('<%= data.image %>');background-repeat: no-repeat;  background-size: cover;"></div>
+        <!-- <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Example headline.</h1>
+            <p>Some representative placeholder content for the first slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div> -->
+      </div>
+      <div class="carousel-item">
+        <div style="width:100%; height:100%;background-image: url('<%= data.image %>');background-repeat: no-repeat;  background-size: cover;"></div>
+        <!-- <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div> -->
+      </div>
+      <div class="carousel-item">
+        <div style="width:100%; height:100%;background-image: url('<%= data.image %>');background-repeat: no-repeat;  background-size: cover;"></div>
+        <!-- <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    
+
+
+    <!-- START THE FEATURETTES -->
+
+    <!-- <hr class="featurette-divider"> -->
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1"><%= data.name %> <span class="text-muted"> <br></span></h2>
+        <p class="lead"><%= data.description %> </p>
+        
+        
+        <br>
+
+        <h6>Seats : <%= data.seats %></h6>
+        <h6>Time : <%= data.time %>  </h6>
+        <h6>Phone : <%= data.number %>  </h6>
+        <h6>E-Mail : <%= data.email %>  </h6>
+        <h6>Website : <a href="<%= data.website %>"><%= data.website %></a>  </h6>  <br><br>
+        
+        
+        <!-- <button class="btn btn-outline-success book-seat" type="submit">Book Seat</button> -->
+        <button type="button" class="btn btn-danger btn-outline-success book-seat" style="color: white ;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Book Seat</button>
+        <button class="btn-primary btn favourite-seat" style=" color: wheat;" type="submit"> FAV </button>
+      </div>
+      <div class="col-md-5">
+        <div style="width:100%; height:100%;background-image: url('<%= data.image %>');"></div>
+
+      </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <!-- <footer class="container"> -->
+    <!-- <button class="btn btn-outline-success float-end" type="submit">Home</button> -->
+    <!-- <p class="float-end"><a href="#">Back to top</a></p> -->
+    <!-- <p>&copy; &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
+    
+  <!-- </footer> -->
+  <!-- <hr class="featurette-divider"> -->
+</main>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Book Slots</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Customer Name : </label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Time : </label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Time</option>
+              <option value="10am - 11am">10am - 11am</option>
+              <option value="11am - 12pm">11am - 12pm</option>
+              <option value="12pm - 1pm">12pm - 1pm</option>
+              <option value="1pm - 2pm">1pm - 2pm</option>
+              <option value="2pm - 3pm">2pm - 3pm</option>
+              <option value="3pm - 4pm">3pm - 4pm</option>
+              <option value="4pm - 5pm">4pm - 5pm</option>
+              <option value="5pm - 6pm">5pm - 6pm</option>
+              <option value="6pm - 7pm">6pm - 7pm</option>
+              <option value="7pm - 8pm">7pm - 8pm</option>
+              <option value="8pm - 9pm">8pm - 9pm</option>
+              <option value="9pm - 10pm">9pm - 10pm</option>
+              <option value="10pm - 11pm">10pm - 11pm</option>
+              
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Total Seats : </label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seats</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+        <button type="button" class="btn btn-primary">CONFIRM</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- <script src="..public/assets/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+      
+  </body>
+</html>

@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
 
 
-mongoose.connect('mongodb://localhost:27017/sasi')
+mongoose.connect('mongodb://localhost:27017/soman')
     .then(() => {
     console.log("Database Connected");
 })
@@ -32,20 +32,23 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', async (req, res) => {
     const data = await Restaurent.find({});
-    res.render("index",{ data });
+    res.render('index',{data});
+    // res.send(data);
 });
-
 app.get('/login', (req, res) => {
     res.render('login');
+    // res.send(data);
+});
+app.get('/notification', (req, res) => {
+    res.render('notification');
+    // res.send(data);
 });
 
 app.get('/:id',async (req,res)=>{
     const data = await Restaurent.findById(req.params.id);
     res.render('show',{data});
+    // res.send(data);
 });
-
-
-
 
 app.listen(3000, () => {
     console.log('App listening on port 3000!');

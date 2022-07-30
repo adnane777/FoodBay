@@ -2,15 +2,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RestaurentSchema = new Schema({
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    number:{
-        type:Number,
-        required:true
-    }
+    number: {
+        type: Number,
+        required: true
+    },
+    website: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String
+    }, time: { type: String },
+    seats: { type: Number },
+    description: { type: String }
 })
 
 
-module.exports = mongoose.model('Restaurent',RestaurentSchema);
+module.exports = mongoose.model('Restaurent', RestaurentSchema);

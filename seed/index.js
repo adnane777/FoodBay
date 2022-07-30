@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const hotel = require('./hotel.js');
 const Restaurent = require('../model/restaurent.js');
+const {randomUUID} = require('crypto');
 
-const {randomBytes} = require('node:crypto')
-
-mongoose.connect('mongodb://localhost:27017/sasi').then(() => {
+mongoose.connect('mongodb://localhost:27017/soman').then(() => {
     console.log("console to DB");
 }).catch(err => {
     console.log("Error:",err.message);
@@ -14,9 +13,13 @@ const seedRestaurents = async ()=>{
     await Restaurent.deleteMany({});
     for (let restaurent of hotel){
         let newRestaurent = new Restaurent({
-            _id:randomBytes(16).toString('hex').slice(0,24),
             name: restaurent.name,
-            number: restaurent.number
+            number: restaurent.number,
+            website: restaurent.website,
+            time: restaurent.time,
+            image: restaurent.image,
+            description: restaurent.description,
+            seats: restaurent.seats
         })
         let data = await newRestaurent.save();
         console.log(data);

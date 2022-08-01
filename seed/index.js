@@ -19,7 +19,9 @@ const seedRestaurents = async ()=>{
             time: restaurent.time,
             image: restaurent.image,
             description: restaurent.description,
-            seats: restaurent.seats
+            seats: restaurent.seats,
+            email: restaurent.email,
+            location: restaurent.location
         })
         let data = await newRestaurent.save();
         console.log(data);

@@ -14,9 +14,15 @@ const RestaurentSchema = new Schema({
         type: String,
         required: true
     },
+    email:{
+        type: String,
+    },
     image: {
         type: String
-    }, time: { type: String },
+    },location: {
+        type: String
+    },
+    time: { type: String },
     seats: { type: Number },
     description: { type: String }
 })

@@ -5,14 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-- <meta name="generator" content="Hugo 0.101.0"> -->
-    <title>Carousel Template · Bootstrap v5.2</title>
-    <link rel="stylesheet" href="/carousel.css">
+    <title>Restaurant Profile</title>
+    <!-- <link rel="stylesheet" href="/carousel.css"> -->
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/"> -->
-    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css"> -->
 <!-- <link href="../public/assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <style>
+
+      /* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+.delete-seat {
+    background-color: #051a03;
+    padding: 20px 10% 20px 10%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+/* rtl:end:ignore */
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+/* rtl:begin:remove */
+.featurette-heading {
+  letter-spacing: -.05rem;
+}
+
+/* rtl:end:remove */
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 2rem;
+  }
+}
+
+/*  */
+
+.book-seat{
+    background-color: #051a03;
+    padding: 20px 30% 20px 30%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: white;
+}
+.favourite-seat{
+  background-color: #051a03;
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -100,7 +214,7 @@
 </header>
 
 <main>
-
+  
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -166,17 +280,18 @@
 
     <div class="row featurette">
       <div class="col-md-7">
+         
         <h2 class="featurette-heading fw-normal lh-1"><%= data.name %> <span class="text-muted"> <br></span></h2>
         <p class="lead"><%= data.description %> </p>
         
         
         <br>
 
-        <h6>Seats : <%= data.seats %></h6>
-        <h6>Time : <%= data.time %>  </h6>
-        <h6>Phone : <%= data.number %>  </h6>
-        <h6>E-Mail : <%= data.email %>  </h6>
-        <h6>Website : <a href="<%= data.website %>"><%= data.website %></a>  </h6>  <br><br>
+        <h6><strong>Seats : </strong> <%= data.seats %></h6>
+        <h6><strong>Time : </strong> <%= data.time %>  </h6>
+        <h6><strong>Contact : </strong> <%= data.number %>  </h6>
+        <h6><strong>Email : </strong> <%= data.email %>  </h6>
+        <h6><strong>Website : </strong> <a href="<%= data.website %>"><%= data.website %></a>  </h6>  <br><br>
         
         
         <!-- <button class="btn btn-outline-success book-seat" type="submit">Book Seat</button> -->
@@ -187,14 +302,22 @@
         <div style="width:100%; height:100%;background-image: url('<%= data.image %>');"></div>
 
       </div>
-    </div>
+      </div>
+
+      <hr class="featurette-divider">
+      <!-- <label for=""> <h5 class="text-center"> REMOVE RESTAURANT </h5> </label> <br> -->
+      <form action="/restaurent/<%= data._id %>?_method=DELETE " method="post" style="display:inline">
+        <button type="" class="btn btn-danger btn-outline-danger delete-seat" style="color: white ;" >Delete Restaurant</button>
+      </form>
+      <a href="/restaurent/<%= data._id %>/edit">
+      <button type="" class="btn btn-danger btn-outline-danger delete-seat" style="color: white ;" >Edit Details</button>
+      </a>
 
 
-    <hr class="featurette-divider">
-
+      </div>
     <!-- /END THE FEATURETTES -->
 
-  </div><!-- /.container -->
+ <!-- /.container -->
 
 
   <!-- FOOTER -->
@@ -269,6 +392,7 @@
 
     <!-- <script src="..public/assets/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-      
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script> 
   </body>
 </html>

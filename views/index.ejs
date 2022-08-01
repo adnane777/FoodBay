@@ -7,12 +7,12 @@
       <div class="navbar__menu_container">
         <a href="/notification" class="link"><span style="font-weight: 700 ; color: white;" > Notifications </span> </a>
         <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
+        <a href="/dashboard" class="link"><span style="font-weight: 700 ; color: white;" > Dashboard </span> </a>
+        <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
         <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Login </span></a>
         <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
         <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Sign Up</span></a>
-        <!-- <a href="#" class="user__icon"> -->
-          <i class="fa fa-user"></i>
-        </a>
+        
       </div>
     </nav>
   </header>
@@ -62,11 +62,11 @@
   </div>
   <div class="collections_card_container">
     <% data.forEach((data,index)=>{ %> 
-        <a href="/<%= data._id %> ">
+        <a href="/restaurent/<%= data._id %> ">
     <div class="card card2" style="background-image:url('<%= data.image %>');">
       <div class="overlay"></div>
       <div class="content">
-        <h4>Shop #0<%= index+1 %></h4>
+        <h4><%= data.name%></h4>
         <span><%= data.time %> </span>
       </div>
     </div>
@@ -114,8 +114,8 @@
     
     <div class="link__container">
       <h5>FOR RESTAURANTS</h5>
-      <a class="footer__link" href="#">Partner With Us</a>
-      <a class="footer__link" href="#">Apps For You</a>
+      <a class="footer__link" href="/newRestaurant">Partner With Us</a>
+      <!-- <a class="footer__link" href="#">Apps For You</a> -->
       <br />
     </div>
 

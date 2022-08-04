@@ -90,7 +90,7 @@ h6 {
   line-height: 36px;
   text-align: center;
   font-size: 24px;
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
 }
 .checkbox:checked + label:before {
   transform: translateX(44px) rotate(-270deg);
@@ -120,6 +120,8 @@ h6 {
 .card-front, .card-back {
   width: 100%;
   height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background-color: #2a2b38;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
   background-position: bottom center;

@@ -8,6 +8,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    number: {
+        type: Number,
+        required: true
+    },
+    isAdmin:{
+        type:Boolean,
+        default:false,
+        required:true
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose);

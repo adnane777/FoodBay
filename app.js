@@ -94,13 +94,13 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/signup',async (req,res)=>{
-    const {username,password,email} = req.body;
-    const user = new User({username,email});
+    const {username,password,email,number} = req.body;
+    const user = new User({username,email,number});
     User.register(user,password)
     .then(user=>{
         req.login(user,err=>{
             if(err) return next(err);
-            req.flash('success','You have logged in successfully !!!!!!!!!!');
+            req.flash('success','You have logged in Successfully');
             res.redirect('/')
         })
     })
@@ -112,13 +112,13 @@ app.get('/login', (req, res) => {
 
 
 app.post('/login',passport.authenticate('local',{failureFlash: true, failureRedirect: '/login'}),(req,res)=>{
-    req.flash('success','You have logged in bitch');
+    req.flash('success',"You've Logged IN Succefully");
     res.redirect('/');
 })
 
 app.get('/logout',(req,res)=>{
     req.logout(err=>{
-        req.flash("success","pooyi leeeeeeeeeee 💋💋")
+        req.flash("success","You've Logged Out.")
         res.redirect('/')
     })
 })
@@ -154,7 +154,7 @@ app.post('/newRestaurant',async (req, res) => {
         const newRestaurant = new Restaurent(req.body);
         newRestaurant.owner = req.user._id;
         await newRestaurant.save();
-        req.flash('success', 'Successfully made a new restaurant!');
+        req.flash('success', 'Successfully made a New Restaurant !');
         res.redirect('/');
     } catch (error) {
         req.flash('error', error.message);
@@ -177,7 +177,7 @@ app.get('/restaurent/:id',async (req,res)=>{
 app.delete('/restaurent/:id', async (req, res) => {
     const {id} = req.params;
     const deletedRestaurent = await Restaurent.findByIdAndDelete(id);
-    req.flash('success', 'Successfully deleted a restaurent');
+    req.flash('success', 'Successfully Deleted the Restaurent');
     res.redirect('/');
 })
 

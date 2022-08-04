@@ -700,12 +700,12 @@ input {
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Feedback Form</h2>
-                    <form method="POST" action="/newRestaurant">
+                    <form method="" action="">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Name</label>
-                                    <input class=" input-one input--style-4" placeholder="username" type="text" name="name">
+                                    <input class=" input-one input--style-4" placeholder=" <%= kuUser? kuUser.username: "Name"  %> " type="text" name="name">
                                 </div>
                             </div>
                         </div>
@@ -720,7 +720,7 @@ input {
                         
                        
                         <div class="input-group">
-                            <label class="label">Rating</label>
+                            <label class="label">Rate our work</label>
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select class="form-select input-one input--style-4" style="height: 2.5rem ;" aria-label="Default select example">
                                     <option selected>none</option>
@@ -735,7 +735,7 @@ input {
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit"> <a href="/" style="color: white; text-decoration:none;"> Submit</a></button>
                         </div>
                     </form>
                 </div>

@@ -19,19 +19,19 @@
       <div class="container-fluid">
 
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-top-user text-uppercase  d-lg-inline-block" href="/" target="_blank">User profile</a>
+        <a class="h4 mb-0 text-white text-top-user text-uppercase  d-lg-inline-block" href="/" target="_blank">~</a>
         
         <!-- User -->
         <ul class="navbar-nav align-items-center d-md-flex">
           <li class="nav-item dropdown">
               <div class="media align-items-center">
                 <div class="media-body ml-2 d-lg-block">
-                    <a class="h4 mb-0 text-white text-topr-user text-uppercase  d-lg-inline-block" href="/" target="_blank">User profile</a>
+                    <a class="h4 mb-0 text-white text-topr-user text-uppercase  d-lg-inline-block" href="/" target="_blank">User profile Dashboard</a>
                 </div>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-              <div class=" dropdown-header noti-title">
+              <!-- <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
               <a href="../examples/profile.html" class="dropdown-item">
@@ -54,7 +54,7 @@
               <a href="#!" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
-              </a>
+              </a> -->
             </div>
           </li>
         </ul>
@@ -84,8 +84,10 @@
             </div>
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               <div class="d-flex justify-content-between">
-                <a href="/" class="btn btn-sm btn-info mr-4">Back</a>
-                <a href="/" class="btn btn-sm btn-default float-right">Edit</a>
+                
+                <a href="/" class="btn btn-sm btn-default float-right">Back</a>
+                <a href="/" class="btn btn-sm btn-info mr-4">X</a>
+
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
@@ -93,17 +95,17 @@
                 <br><br><br>
               </div>
               <div class="text-center">
-                <h3>
-                  NAME
+                <h3 style="font-weight:700; font-size: 30px;">
+                  <span style="font-weight: 300;"> I'm </span> <%= kuUser? kuUser.username: "No Name"  %> 
                   <!-- <span class="font-weight-light"></span> -->
                 </h3>
                 <div class="h5 font-weight-300">
-                  Location <hr>
+                  <!-- Location <hr> -->
                 </div>
                 <div class="h5 mt-4">
-                  <h5>Phone</h5> 
-                  <h5>Email</h5>
-                  <h5>Address</h5>
+                  <span style="font-weight: 300;"> Phone : </span> <%= kuUser? kuUser.number: "No Number"  %> <br>
+                  <span style="font-weight: 300;"> Mail : </span> <%= kuUser? kuUser.email: "No Mail"  %>
+                  <!-- <h5>Address</h5> -->
                 </div>
                 <hr>
                 <div>

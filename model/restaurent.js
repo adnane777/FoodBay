@@ -16,6 +16,7 @@ const RestaurentSchema = new Schema({
     },
     email:{
         type: String,
+        required: true
     },
     image: {
         type: String
@@ -23,7 +24,7 @@ const RestaurentSchema = new Schema({
         type: String
     },
     time: { type: String },
-    seats: { type: Number },
+    seats: { type: Number, required: true },
     description: { type: String },
     owner:{
         type:Schema.Types.ObjectId,

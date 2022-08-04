@@ -8,14 +8,14 @@
         <a href="/notification" class="link"><span style="font-weight: 700 ; color: white;" > Notifications </span> </a>
         <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
         <% if(!kuUser){ %> 
-        <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Login </span></a>
-        <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
-        <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Sign Up</span></a>
+        <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Login / SignUp </span></a>
+        <!-- <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
+        <a href="/login" class="link"><span style="font-weight: 700 ; color: white;" > Sign Up</span></a> -->
         <% } else { %>
-          <a href="/dashboard" class="link"><span style="font-weight: 700 ; color: white;" > Dashboard </span> </a>
+          <a href="/dashboard" class="link"><span style="font-weight: 700 ; color: rgb(255, 255, 255);" > Dashboard </span> </a>
         <a href="" class="link"><span style="font-weight: 700 ; color: white;" > | </span> </a>
-          <p><%= kuUser.username %></p>
-          <a href="/logout" class="link"><span style="font-weight: 700 ; color: white;"> logout </span></a>
+          <p><a href="/dashboard" class="link"><span style="font-weight: 700 ; color: rgb(255, 255, 255);" > <span style="font-weight:500;"> I'm </span>  <span style="color: yellow ;"> <%= kuUser.username %></span></span> </a> </p>
+          <button class="btn btn-danger"><a href="/logout" class="link"><span style="font-weight: 700 ; color: white;"> Logout </span></a></button>
           <% } %>  
       </div>
     </nav>
@@ -31,13 +31,13 @@
       <input
         class="input_container_location"
         type="text"
-        placeholder="Your Location"
+        placeholder="Hello <%= kuUser? kuUser.username: "New Face, "  %> Login/SignUp right away."
       />
-      <input
+      <!-- <input
         class="input_container_search"
         type="text"
         placeholder="Search for a restaurant near you"
-      />
+      /> -->
     </div>
   </div>
 </section>
@@ -45,13 +45,13 @@
 <section class="container we__offer">
   <div class="card">
     <img src="./images/item1.png" alt="offer" />
-    <h2>Order Here</h2>
+    <h2>Order Here (Soon)</h2>
     <p>Order to your doorstep</p>
   </div>
   <div class="card">
     <img src="./images/item2.png" alt="offer" />
-    <h2>Your Favourites</h2>
-    <p>Favourites / Wishlists can be seen here</p>
+    <h2>Your Favourites (Soon)</h2>
+    <p>Favourites / Wishlists can be seen here.</p>
   </div>
   
 </section>
@@ -118,23 +118,26 @@
     
     <div class="link__container">
       <h5>FOR RESTAURANTS</h5>
-      <a class="footer__link" href="/newRestaurant">Partner With Us</a>
+      <a class="footer__link" href="/newRestaurant">Add New Restaurant</a>
       <!-- <a class="footer__link" href="#">Apps For You</a> -->
       <br />
     </div>
 
     <div class="link__container">
       <h5>LEARN MORE</h5>
-      <a class="footer__link" href="#">Project Report</a>
-      <a class="footer__link" href="#">Designs</a>
+      <a class="footer__link" href="https://drive.google.com/drive/folders/1-0FHexlNUMTTOU9W3kR-POlYrp0XearG">Project Report</a>
+      <!-- <a class="footer__link" href="#">Designs</a> -->
     </div>
 
 
     <div class="link__container">
       <h5>SOCIAL LINKS</h5>
       <div class="social__links_container">
-        <a href="#"><button><i class="fa-brands fa-linkedin-in"></i></button></a>
-        <a href="#"><button><i class="fa-brands fa-instagram"></i></button></a>            
+        <button><a href="https://www.linkedin.com/in/hafiscp"><i class="fa-brands fa-linkedin-in"></i></a></button>
+        <button> <a href="#"><i class="fa-brands fa-instagram"></i></a></button>
+        <button><a href="https://github.com/hafiscp/test/"><i class="fa-brands fa-github"></i></a></button>
+        
+                    
       </div>
       <br />
     </div>

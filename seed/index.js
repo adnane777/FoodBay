@@ -23,6 +23,7 @@ const seedRestaurents = async ()=>{
             email: restaurent.email,
             location: restaurent.location
         })
+        newRestaurent.owner = '62ebd1933f6e5e4d9a22757b';
         let data = await newRestaurent.save();
         console.log(data);
     }

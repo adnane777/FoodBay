@@ -306,12 +306,14 @@ html {
 
       <hr class="featurette-divider">
       <!-- <label for=""> <h5 class="text-center"> REMOVE RESTAURANT </h5> </label> <br> -->
+      <% if(kuUser && data.owner.equals(kuUser._id)){ %> 
       <form action="/restaurent/<%= data._id %>?_method=DELETE " method="post" style="display:inline">
         <button type="" class="btn btn-danger btn-outline-danger delete-seat" style="color: white ;" >Delete Restaurant</button>
       </form>
       <a href="/restaurent/<%= data._id %>/edit">
       <button type="" class="btn btn-danger btn-outline-danger delete-seat" style="color: white ;" >Edit Details</button>
       </a>
+      <% } %> 
 
 
       </div>

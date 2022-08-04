@@ -24,7 +24,11 @@ const RestaurentSchema = new Schema({
     },
     time: { type: String },
     seats: { type: Number },
-    description: { type: String }
+    description: { type: String },
+    owner:{
+        type:Schema.Types.ObjectId,
+        ref:'User'
+    }
 })
 
 

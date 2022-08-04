@@ -1,12 +1,20 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+
 const engine = require('ejs-mate');
 const Restaurent = require('./model/restaurent.js');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session'); 
-const methodOverride = require('method-override');
+const methodOverride = require('method-override')
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./model/user.js');
+// const authRoutes = require('./routes/auth-routes'); 
+
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
@@ -40,12 +48,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 app.use(
     (req, res, next) => {
     res.locals.success = req.flash('success'),
     res.locals.error = req.flash('error')
+    res.locals.kuUser = req.user;
     next();
     }
 )
@@ -61,7 +76,6 @@ app.get('/restaurent/:id/edit', async (req, res) => {
     if(mongoose.Types.ObjectId.isValid(id)){
     const restaurent = await Restaurent.findById(id);
     res.render('editRestaurant', {restaurent});
-    // console.log(restaurent);
     }
 })
 app.put('/restaurent/:id', async (req, res) => {
@@ -74,27 +88,43 @@ app.put('/restaurent/:id', async (req, res) => {
 })
 
 
-// app.get('/', async(req, res) => {
-//     await Restaurent.deleteMany({});
-//     const d = new Restaurent({name: 'Sugu',website: 'www.sugus.com',image: 'https://images.unsplash.com/photo-1602520000000-8c8c8c8c8c8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', number: 1234567890, time: new Date()});
-//     await d.save();
-//     const data = await Restaurent.find({});
-//     res.send(data);
-// })
-
 app.get('/', async (req, res) => {
     const data = await Restaurent.find({});
     res.render('index',{data});
-    // res.send(data);
 });
+
+app.post('/signup',async (req,res)=>{
+    const {username,password,email} = req.body;
+    const user = new User({username,email});
+    User.register(user,password)
+    .then(user=>{
+        req.login(user,err=>{
+            if(err) return next(err);
+            req.flash('success','You have logged in successfully !!!!!!!!!!');
+            res.redirect('/')
+        })
+    })
+})
 
 app.get('/login', (req, res) => {
     res.render('login');
-    // res.send(data);
 });
+
+
+app.post('/login',passport.authenticate('local',{failureFlash: true, failureRedirect: '/login'}),(req,res)=>{
+    req.flash('success','You have logged in bitch');
+    res.redirect('/');
+})
+
+app.get('/logout',(req,res)=>{
+    req.logout(err=>{
+        req.flash("success","pooyi leeeeeeeeeee 💋💋")
+        res.redirect('/')
+    })
+})
+
 app.get('/notification', (req, res) => {
     res.render('notification');
-    // res.send(data);
 });
 
 // app.post('/notification', (req, res) => {
@@ -122,6 +152,7 @@ app.post('/newRestaurant',async (req, res) => {
     // res.render('newRestaurant');
     try {
         const newRestaurant = new Restaurent(req.body);
+        newRestaurant.owner = req.user._id;
         await newRestaurant.save();
         req.flash('success', 'Successfully made a new restaurant!');
         res.redirect('/');

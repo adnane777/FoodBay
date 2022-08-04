@@ -102,6 +102,14 @@ app.get('/notification', (req, res) => {
 //     // res.send(data);
 // });
 
+app.get('/feedback', (req, res) => {
+    res.render('feedback');
+});
+
+app.get('/ourteam', (req, res) =>{
+    res.render('ourteam');
+});
+
 app.get('/dashboard', (req, res) => {
     res.render('dashboard');
 });
@@ -109,6 +117,7 @@ app.get('/dashboard', (req, res) => {
 app.get('/newRestaurant', (req, res) => {
     res.render('newRestaurant');
 });
+
 app.post('/newRestaurant',async (req, res) => {
     // res.render('newRestaurant');
     try {
